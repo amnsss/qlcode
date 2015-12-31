@@ -1,6 +1,6 @@
 var crypto = require('crypto');
 var http = require('http');
-var vote = 6;
+var vote = 37;
 
 function guoguan(checkcode) {
 	var options = {
@@ -22,18 +22,17 @@ function guoguan(checkcode) {
 	})
 }
 
-function process(vote) {
-	var date = '20151228';
+function process() {
+	var date = '20151231';
 	var name = 'amnsss';
-		vote = vote || 1;
 	var	x;
 	var pstr = date+name+vote;
-	for(x=9000000; ;x++) {
+	for(x=0; ;x++) {
 		var str = pstr + x;
 		var md5Str = md5(str);
 		// console.log(md5Str+' '+x+' '+str);
 		if(/^000000.*/.test(md5Str)) {
-			console.log(vote+' '+x);
+			console.log(vote+' '+x+' '+str+' '+md5Str);
 			guoguan(x);
 			break;
 		}
@@ -45,4 +44,4 @@ function md5(str){
 	return crypto.createHash('md5').update(str).digest('hex');
 }
 
-process(vote);
+process();

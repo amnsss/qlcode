@@ -189,6 +189,9 @@ function parseMapInfo(mapInfo) {
   }
   return mapInfoObj;
 }
+function checkMap() {
+  
+}
 
 
 
